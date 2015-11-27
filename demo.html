@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+  </head>
+  <body>
+    <a href="index.html">Home</a>
+    <a href="demo.html">刷新</a>
+    <h1>Hello World!</h1>
+    中文不能正常显示吗？😄
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
+    <br>
+    <button id="open">openFile</button>
+    <button id="save">saveFile</button>
+    <button id="error">errorBox</button>
+    <button id="message">messageBox</button>
+    <script>
+        var dialog = require('./core/dialog');
+        document.getElementById('open').onclick = function(){
+            dialog.openFile();
+        };
+        document.getElementById('save').onclick = function(){
+            dialog.saveFile();
+        };
+        document.getElementById('error').onclick = function(){
+            dialog.error('Error', '呵呵 错误了');
+        };
+        document.getElementById('message').onclick = function(){
+            dialog.msg();
+        };
+    </script>
+  </body>
+</html>
