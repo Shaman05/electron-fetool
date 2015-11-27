@@ -50,6 +50,6 @@ module.exports = function init(){
     }
   ]);
 
-  appIcon.setToolTip('This is my application.');
+  appIcon.setToolTip('Fetool - 前端助手');
   appIcon.setContextMenu(contextMenu);
 };
