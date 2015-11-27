@@ -1,0 +1,22 @@
+{
+  "name": "fetool-electron",
+  "version": "1.0.0",
+  "description": "Fetool - A electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Shaman05/electron-fetool.git"
+  },
+  "keywords": [
+    "Fetool",
+    "Electron"
+  ],
+  "author": "Devin Chen",
+  "devDependencies": {
+    "electron-prebuilt": "^0.35.0",
+    "electron-rebuild": "^1.0.2"
+  }
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    中文不能正常显示吗？😄
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
+    <script>
+
+    </script>
+
+    <div id="holder" style="height: 100px; width: 100px; border: 1px dotted red">
+        Drag your file here
+    </div>
+
+    <button id="open">openFile</button>
+    <button id="save">saveFile</button>
+    <button id="error">errorBox</button>
+    <button id="message">messageBox</button>
+    <script>
+        const remote = require('electron').remote;
+        console.log(remote);
+        for(var p in remote){
+            if(remote.hasOwnProperty(p)){
+                //console.log(p + ':', remote[p]);
+            }
+        }
+        const Menu = remote.Menu;
+        const MenuItem = remote.MenuItem;
+
+        const menu = new Menu();
+        menu.append(new MenuItem({ label: 'MenuItem1', click: function() { console.log('item 1 clicked'); } }));
+        menu.append(new MenuItem({ type: 'separator' }));
+        menu.append(new MenuItem({
+            label: 'MenuItem2',
+            accelerator: 'Shift+CmdOrCtrl+Z',
+            type: 'checkbox',
+            checked: true,
+            role: 'about'
+        }));
+
+        window.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+            menu.popup(remote.getCurrentWindow());
+        }, false);
+
+        var dialog = remote.dialog;
+        document.getElementById('open').onclick = function(){
+            dialog.showOpenDialog({
+                properties: [ 'openFile', 'openDirectory', 'multiSelections', 'createDirectory' ],
+                filters: [
+                    { name: 'Images', extensions: ['png'] }
+                ]
+            });
+        };
+        document.getElementById('save').onclick = function(){
+            dialog.showSaveDialog({
+                properties: [ 'openFile', 'openDirectory', 'multiSelections', 'createDirectory' ]
+            });
+        };
+        document.getElementById('error').onclick = function(){
+            dialog.showErrorBox('Error', 'system error!');
+        };
+        document.getElementById('message').onclick = function(){
+            dialog.showMessageBox({
+                // Can be "none", "info", "error", "question" or "warning".
+                type: 'warning',
+                title: 'Message',
+                message: 'This is a message box!',
+                detail: 'more info ',
+                buttons: ['a', 'b', 'c', 'd', 'e'],
+                properties: {}
+            }, function(index){
+                console.log(index);
+            });
+        };
+    </script>
+  </body>
+</html>

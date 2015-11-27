@@ -1,0 +1,21 @@
+{
+  "name": "fetool-electron",
+  "homepage": "https://github.com/shaman05/fetool",
+  "authors": [
+    "Devin Chen <shaman05@me.com>"
+  ],
+  "description": "Fetool - A electron application",
+  "keywords": [
+    "Fetool",
+    "Electron"
+  ],
+  "devDependencies": {
+    "bootstrap": "3",
+    "angular": "1.3.x",
+    "angular-route": "1.3.x",
+    "angular-loader": "1.3.x",
+    "angular-mocks": "~1.3.x",
+    "html5-boilerplate": "~4.3.0",
+    "codemirror": "*"
+  }
+}
