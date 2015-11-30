@@ -23,6 +23,9 @@ var electron = require('electron');
 // be closed automatically when the JavaScript object is garbage collected.
 var mainWindow = null;
 
+
+global._ROOT_ = __dirname;
+
 // Quit when all windows are closed.
 app.on('window-all-closed', function() {
   // On OS X it is common for applications and their menu bar

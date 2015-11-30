@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-ng-app="sass" data-ng-controller="sassCtrl">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Sass</title>
+    <script src="../../bower_components/angular/angular.min.js"></script>
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
 </head>
 <body>
-    hello
+    <a href="index.html">刷新</a>
+    <h1>hello, {{name}}</h1>
+    <script>
+        var app = angular.module('sass', []);
+        app.controller('sassCtrl', ['$scope', function($scope){
+            $scope.name = 'sass';
+        }]);
+    </script>
 </body>
 </html>
